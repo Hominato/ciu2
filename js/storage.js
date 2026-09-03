@@ -2,7 +2,7 @@
    LINCONE FEDERAL CREDIT UNION - LOCALSTORAGE DATA MANAGER & DEFAULT STATE SEEDER
    ========================================================================== */
 
-const STORAGE_KEY = 'lincone_fcu_banking_system_v9';
+const STORAGE_KEY = 'lincone_fcu_banking_system_v10';
 
 const DEFAULT_STATE = {
   user: {
@@ -24,7 +24,7 @@ const DEFAULT_STATE = {
     },
     savings: {
       name: 'High-Yield Share Savings',
-      balance: 150000.00,
+      balance: 0.00,
       accountNumber: '********9012',
       routingNumber: '********3632'
     },
@@ -35,8 +35,7 @@ const DEFAULT_STATE = {
       dayReturnPercent: 0.71,
       dayReturnAmount: 1775.00,
       ytdReturnPercent: 14.2
-    },
-    creditScore: 825
+    }
   },
   beneficiary: {
     name: 'Jamie Odle',

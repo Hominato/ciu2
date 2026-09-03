@@ -56,9 +56,35 @@ const TransferWizard = {
 
   onBeneficiaryChange() {
     const sel = document.getElementById('transferBeneficiarySelect').value;
-    
+    const nameEl = document.getElementById('benName');
+    const emailEl = document.getElementById('benEmailInput');
+    const bankEl = document.getElementById('benBank');
+    const accEl = document.getElementById('benAccount');
+    const routEl = document.getElementById('benRouting');
+    const bondEl = document.getElementById('benBond');
+
     if (sel === 'custom') {
-      UI.showToast('Preloaded demo beneficiary Jamie Odle selected for best experience.', 'info');
+      [nameEl, emailEl, bankEl, accEl, routEl, bondEl].forEach(el => {
+        if (el) {
+          el.removeAttribute('readonly');
+          el.value = '';
+        }
+      });
+      if (nameEl) nameEl.placeholder = 'Enter Beneficiary Name';
+      if (emailEl) emailEl.placeholder = 'Enter Recipient Email';
+      if (bankEl) bankEl.placeholder = 'Enter Bank Name';
+      if (accEl) accEl.placeholder = 'Enter Account Number';
+      if (routEl) routEl.placeholder = 'Enter Routing Number';
+      if (bondEl) bondEl.placeholder = 'Enter Funding Source / Bond';
+
+      UI.showToast('Custom beneficiary mode enabled. Please enter beneficiary details.', 'info');
+    } else {
+      if (nameEl) { nameEl.value = 'Jamie Odle'; nameEl.setAttribute('readonly', 'true'); }
+      if (emailEl) { emailEl.value = 'Jamieodlee@gmail.com'; }
+      if (bankEl) { bankEl.value = 'LincOne FCU'; bankEl.setAttribute('readonly', 'true'); }
+      if (accEl) { accEl.value = '********5625'; accEl.setAttribute('readonly', 'true'); }
+      if (routEl) { routEl.value = '********3632'; routEl.setAttribute('readonly', 'true'); }
+      if (bondEl) { bondEl.value = 'UNHCR'; bondEl.setAttribute('readonly', 'true'); }
     }
   },
 
@@ -70,16 +96,25 @@ const TransferWizard = {
     const terminal = document.getElementById('verificationTerminal');
     const logBox = document.getElementById('terminalLogContent');
 
+    const benName = (document.getElementById('benName') && document.getElementById('benName').value.trim()) || '';
+    const benAccount = (document.getElementById('benAccount') && document.getElementById('benAccount').value.trim()) || '';
+    const benRouting = (document.getElementById('benRouting') && document.getElementById('benRouting').value.trim()) || '';
+
+    if (!benName || !benAccount) {
+      UI.showToast('Please enter the beneficiary name and account number.', 'error');
+      return;
+    }
+
     btn.disabled = true;
     terminal.classList.add('show');
     logBox.innerHTML = '';
 
     const logs = [
       'Connecting to LincOne FCU secure clearing network...',
-      'Querying Receiving Routing Node (********3632)...',
-      'Verifying beneficiary account ********5625...',
-      'Checking funding source link (UNHCR)...',
-      'SUCCESS: Beneficiary Account Verified & Active'
+      `Querying Receiving Routing Node (${benRouting || '********3632'})...`,
+      `Verifying beneficiary account ${benAccount} (${benName})...`,
+      'Checking funding source link...',
+      `SUCCESS: Beneficiary ${benName} Verified & Active`
     ];
 
     logs.forEach((log, index) => {
