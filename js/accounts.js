@@ -328,26 +328,22 @@ const AccountsManager = {
       purpose: `Savings Deposit`
     };
 
-    store.transactions.unshift(txnData);
-    
-    // Add notification
-    const newNotif = {
-      id: 'notif-' + Date.now(),
-      title: 'Internal Transfer Completed',
-      message: `${Helpers.formatCurrency(amount)} transferred from ${sourceName} to ${destName}.`,
-      time: 'Just now',
-      read: false
-    };
-    store.notifications.unshift(newNotif);
+    StorageManager.addTransaction(txnData);
+    StorageManager.addNotification(
+      'Internal Transfer Completed',
+      `${Helpers.formatCurrency(amount)} transferred from ${sourceName} to ${destName}.`
+    );
 
-    // Save and close
-    StorageManager.saveStore(store);
     UI.closeModal();
 
     // Rerender view balances
     this.renderBalances();
     this.selectAccount(this.selectedAccount);
-    Dashboard.renderBalances(); // global dashboard balance update
+    Dashboard.renderBalances();
+    Dashboard.renderRecentTransactions();
+    if (typeof TransactionsManager !== 'undefined' && TransactionsManager.render) {
+      TransactionsManager.render();
+    }
 
     UI.showToast('Internal transfer completed successfully!', 'success');
   }

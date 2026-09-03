@@ -167,6 +167,10 @@ const DisbursementManager = {
 
             // Update UI
             Dashboard.renderBalances();
+            Dashboard.renderRecentTransactions();
+            if (typeof TransactionsManager !== 'undefined' && TransactionsManager.render) {
+              TransactionsManager.render();
+            }
             this.resetForm();
 
             UI.showToast('Disbursement submitted! Status: Pending', 'info');

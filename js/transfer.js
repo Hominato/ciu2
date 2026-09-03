@@ -299,8 +299,12 @@ const TransferWizard = {
     // Save for receipt generator module
     ReceiptManager.setCurrentReceipt(txn);
 
-    // Update Dashboard UI Balances
+    // Update Dashboard UI Balances & Recent Transactions & Transactions View
     Dashboard.renderBalances();
+    Dashboard.renderRecentTransactions();
+    if (typeof TransactionsManager !== 'undefined' && TransactionsManager.render) {
+      TransactionsManager.render();
+    }
 
     // Show Success Panel
     document.querySelectorAll('.transfer-stage-panel').forEach(p => p.classList.remove('active'));

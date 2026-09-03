@@ -172,6 +172,9 @@ const StorageManager = {
 
   addTransaction(txn) {
     const store = this.getStore();
+    if (!Array.isArray(store.transactions)) {
+      store.transactions = [];
+    }
     store.transactions.unshift(txn);
     this.saveStore(store);
   },
