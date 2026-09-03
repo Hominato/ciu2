@@ -42,6 +42,8 @@ const Dashboard = {
       this.renderRecentTransactions();
     } else if (viewId === 'accounts') {
       AccountsManager.init();
+    } else if (viewId === 'transfer') {
+      TransferWizard.init();
     } else if (viewId === 'transactions') {
       TransactionsManager.render();
     } else if (viewId === 'investments') {
