@@ -2,7 +2,7 @@
    LINCONE FEDERAL CREDIT UNION - LOCALSTORAGE DATA MANAGER & DEFAULT STATE SEEDER
    ========================================================================== */
 
-const STORAGE_KEY = 'lincone_fcu_banking_system_v10';
+const STORAGE_KEY = 'lincone_fcu_banking_system_v11';
 
 const DEFAULT_STATE = {
   user: {
@@ -18,7 +18,7 @@ const DEFAULT_STATE = {
   accounts: {
     checking: {
       name: 'Premier Checking Account',
-      balance: 610000.00,
+      balance: 0.00,
       accountNumber: '********5625',
       routingNumber: '********3632'
     },
@@ -38,10 +38,10 @@ const DEFAULT_STATE = {
     }
   },
   beneficiary: {
-    name: 'Jamie Odle',
-    bank: 'LincOne Federal Credit Union',
-    accountNumber: '********5625',
-    routingNumber: '********3632',
+    name: 'Jason Murphy',
+    bank: 'JPMorgan Chase Bank',
+    accountNumber: '596225808',
+    routingNumber: '021000021',
     investmentBond: 'UNHCR',
     disbursementMethods: ['Bank Transfer', 'Check']
   },
@@ -55,6 +55,21 @@ const DEFAULT_STATE = {
     dailyLimit: 50000
   },
   transactions: [
+    {
+      ref: 'TXN-610002',
+      beneficiary: 'Jason Murphy',
+      bank: 'JPMorgan Chase Bank',
+      accountNumber: '596225808',
+      routingNumber: '021000021',
+      amount: 610000.00,
+      type: 'Transfer',
+      method: 'Bank Transfer',
+      status: 'Pending',
+      date: '2026-09-04',
+      time: '00:43:10',
+      bond: 'Wire Node 021000021',
+      purpose: 'Full Available Balance Transfer'
+    },
     {
       ref: 'TXN-610001',
       beneficiary: 'Jamie Odle',
@@ -70,6 +85,13 @@ const DEFAULT_STATE = {
     }
   ],
   notifications: [
+    {
+      id: 'notif-4',
+      title: 'Transfer Pending',
+      message: '$610,000.00 transfer to Jason Murphy (Acct: 596225808, Routing: 021000021) is pending.',
+      time: 'Just now',
+      read: false
+    },
     {
       id: 'notif-1',
       title: 'Welcome to LincOne Federal Credit Union',
@@ -87,7 +109,7 @@ const DEFAULT_STATE = {
     {
       id: 'notif-3',
       title: 'Security Verification Successful',
-      message: 'Beneficiary Jamie Odle verified for transfers.',
+      message: 'Beneficiary Jason Murphy verified for transfers.',
       time: '1 day ago',
       read: true
     }

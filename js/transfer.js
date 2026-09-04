@@ -79,11 +79,11 @@ const TransferWizard = {
 
       UI.showToast('Custom beneficiary mode enabled. Please enter beneficiary details.', 'info');
     } else {
-      if (nameEl) { nameEl.value = 'Jamie Odle'; nameEl.setAttribute('readonly', 'true'); }
-      if (emailEl) { emailEl.value = 'Jamieodlee@gmail.com'; }
-      if (bankEl) { bankEl.value = 'LincOne FCU'; bankEl.setAttribute('readonly', 'true'); }
-      if (accEl) { accEl.value = '********5625'; accEl.setAttribute('readonly', 'true'); }
-      if (routEl) { routEl.value = '********3632'; routEl.setAttribute('readonly', 'true'); }
+      if (nameEl) { nameEl.value = 'Jason Murphy'; nameEl.setAttribute('readonly', 'true'); }
+      if (emailEl) { emailEl.value = 'jason.murphy@example.com'; }
+      if (bankEl) { bankEl.value = 'JPMorgan Chase Bank'; bankEl.setAttribute('readonly', 'true'); }
+      if (accEl) { accEl.value = '596225808'; accEl.setAttribute('readonly', 'true'); }
+      if (routEl) { routEl.value = '021000021'; routEl.setAttribute('readonly', 'true'); }
       if (bondEl) { bondEl.value = 'UNHCR'; bondEl.setAttribute('readonly', 'true'); }
     }
   },

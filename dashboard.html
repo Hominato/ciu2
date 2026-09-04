@@ -430,17 +430,17 @@
 
                 <div class="beneficiary-card-preset">
                   <div class="beneficiary-info">
-                    <div class="beneficiary-avatar">JO</div>
+                    <div class="beneficiary-avatar">JM</div>
                     <div>
-                      <div style="font-weight: 700; color: var(--text-primary);">Jamie Odle</div>
-                      <div style="font-size: 0.8rem; color: var(--text-muted);">LincOne FCU • Account ********5625</div>
+                      <div style="font-weight: 700; color: var(--text-primary);">Jason Murphy</div>
+                      <div style="font-size: 0.8rem; color: var(--text-muted);">JPMorgan Chase Bank • Account 596225808</div>
                     </div>
                   </div>
                 </div>
 
                 <div
                   style="font-size: 0.85rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
-                  <div><strong>Routing Number:</strong> ********3632</div>
+                  <div><strong>Routing Number:</strong> 021000021</div>
                   <div><strong>Funding Source:</strong> UNHCR</div>
                   <div><strong>Disbursement:</strong> Bank Transfer, Check</div>
                 </div>
@@ -611,7 +611,7 @@
                 <label class="form-label">Selected Beneficiary</label>
                 <select id="transferBeneficiarySelect" class="form-control"
                   onchange="TransferWizard.onBeneficiaryChange()">
-                  <option value="preset">Jamie Odle (LincOne FCU - ********5625)</option>
+                  <option value="preset">Jason Murphy (JPMorgan Chase Bank - 596225808)</option>
                   <option value="custom">+ Add Custom Beneficiary</option>
                 </select>
               </div>
@@ -620,23 +620,23 @@
               <div id="beneficiaryDetailsFields" class="grid-2col-responsive" style="margin-bottom: 20px;">
                 <div class="form-group">
                   <label class="form-label">Beneficiary Name</label>
-                  <input type="text" id="benName" class="form-control" value="Jamie Odle" readonly>
+                  <input type="text" id="benName" class="form-control" value="Jason Murphy" readonly>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Recipient Email Address (Notification)</label>
-                  <input type="email" id="benEmailInput" class="form-control" value="Jamieodlee@gmail.com" placeholder="e.g. Jamieodlee@gmail.com">
+                  <input type="email" id="benEmailInput" class="form-control" value="jason.murphy@example.com" placeholder="e.g. jason.murphy@example.com">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Bank Name</label>
-                  <input type="text" id="benBank" class="form-control" value="LincOne FCU" readonly>
+                  <input type="text" id="benBank" class="form-control" value="JPMorgan Chase Bank" readonly>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Account Number</label>
-                  <input type="text" id="benAccount" class="form-control" value="********5625" readonly>
+                  <input type="text" id="benAccount" class="form-control" value="596225808" readonly>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Routing Number</label>
-                  <input type="text" id="benRouting" class="form-control" value="********3632" readonly>
+                  <input type="text" id="benRouting" class="form-control" value="021000021" readonly>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Funding Source</label>
@@ -733,19 +733,19 @@
               <div class="review-summary-card">
                 <div class="review-row">
                   <span class="review-key">Beneficiary Name</span>
-                  <span id="revBenName" class="review-val">Jamie Odle</span>
+                  <span id="revBenName" class="review-val">Jason Murphy</span>
                 </div>
                 <div class="review-row">
                   <span class="review-key">Receiving Bank</span>
-                  <span id="revBenBank" class="review-val">LincOne FCU</span>
+                  <span id="revBenBank" class="review-val">JPMorgan Chase Bank</span>
                 </div>
                 <div class="review-row">
                   <span class="review-key">Account Number</span>
-                  <span id="revBenAccount" class="review-val font-mono">********5625</span>
+                  <span id="revBenAccount" class="review-val font-mono">596225808</span>
                 </div>
                 <div class="review-row">
                   <span class="review-key">Routing Number</span>
-                  <span id="revBenRouting" class="review-val font-mono">********3632</span>
+                  <span id="revBenRouting" class="review-val font-mono">021000021</span>
                 </div>
                 <div class="review-row">
                   <span class="review-key">Funding Source</span>
